@@ -1,5 +1,5 @@
 # Minesweeper Game in Delphi FMX
-
+![1](Capture/2.PNG)
 This project is a modern implementation of the classic Minesweeper game, built using Delphi FireMonkey (FMX). It was developed with a strong focus on clean code, responsiveness, and user experience.
 
 ✨ Features
@@ -45,5 +45,4 @@ Thank you for your support! 💛
 
 Capture 
 ![1](Capture/1.PNG) 
-![1](Capture/2.PNG)
 ![1](Capture/3.PNG)
