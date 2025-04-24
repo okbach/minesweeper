@@ -48,6 +48,7 @@ var
   BasePath, FlagPath, ExplosionPath: string;
   Explosionclon,Flagclon:TSkAnimatedImage;
   FlagSoundPath, ExplosionSoundPath, RevealSoundPath: string;
+  Data: TMemoryStream;
 begin
   GridLayout.DeleteChildren;
 

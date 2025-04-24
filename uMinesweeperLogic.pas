@@ -17,8 +17,6 @@ type
   end;
   TBoard = array of array of TCell;
 
-
-  type
   TChangedCell = record
     X, Y: Integer;
   end;
@@ -28,6 +26,7 @@ type
     FBoard: TBoard;
     FStatus: TGameStatus;
     FChangedCells: TArray<TChangedCell>;
+    FScore: Integer;
     function Valid(x, y: Integer): Boolean;
     procedure PlaceMines(MineCount: Integer);
     procedure CalculateNumbers;
@@ -41,6 +40,7 @@ type
     function GetBoard: TBoard;
     function GetStatus: TGameStatus;
     function GetChangedCells: TArray<TChangedCell>;
+    function GetScore: Integer;
   end;
 
 implementation
@@ -53,6 +53,7 @@ var
 begin
   SetLength(FBoard, Rows, Cols);
   FStatus := gsPlaying;
+  FScore := 0;
 
   for x := 0 to Rows - 1 do
     for y := 0 to Cols - 1 do
@@ -65,7 +66,6 @@ begin
   PlaceMines(MineCount);
   CalculateNumbers;
   SetLength(FChangedCells, 0);
-
 end;
 
 function TMinesweeper.Valid(x, y: Integer): Boolean;
@@ -135,7 +135,7 @@ begin
   begin
     if (State = csRevealed) or (State = csFlagged) then Exit;
 
-    State := csRevealed; // open  eveal
+    State := csRevealed;
     AddChangedCell(x, y);
 
     if Content = ccMine then
@@ -143,6 +143,8 @@ begin
       FStatus := gsLost;
       Exit;
     end;
+
+    Inc(FScore);
 
     if (Content = ccEmpty) or ((Content = ccNumber) and (Number = 0)) then
     begin
@@ -170,7 +172,6 @@ begin
       State := csClosed
     else
       State := csFlagged;
-
 
     AddChangedCell(x, y);
   end;
@@ -230,8 +231,6 @@ begin
   end;
 end;
 
-
-
 procedure TMinesweeper.AddChangedCell(X, Y: Integer);
 var
   idx: Integer;
@@ -246,6 +245,11 @@ function TMinesweeper.GetChangedCells: TArray<TChangedCell>;
 begin
   Result := FChangedCells;
   SetLength(FChangedCells, 0);
+end;
+
+function TMinesweeper.GetScore: Integer;
+begin
+  Result := FScore;
 end;
 
 end.
