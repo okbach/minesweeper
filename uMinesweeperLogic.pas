@@ -27,6 +27,7 @@ type
     FStatus: TGameStatus;
     FChangedCells: TArray<TChangedCell>;
     FScore: Integer;
+    FChanceUsed: Boolean;
     function Valid(x, y: Integer): Boolean;
     procedure PlaceMines(MineCount: Integer);
     procedure CalculateNumbers;
@@ -54,6 +55,7 @@ begin
   SetLength(FBoard, Rows, Cols);
   FStatus := gsPlaying;
   FScore := 0;
+  FChanceUsed := False;
 
   for x := 0 to Rows - 1 do
     for y := 0 to Cols - 1 do
@@ -140,8 +142,19 @@ begin
 
     if Content = ccMine then
     begin
-      FStatus := gsLost;
-      Exit;
+      if not FChanceUsed then
+      begin
+        FChanceUsed := True;
+        Content := ccEmpty;
+        Number := 0;
+        CalculateNumbers;
+        Exit;
+      end
+      else
+      begin
+        FStatus := gsLost;
+        Exit;
+      end;
     end;
 
     Inc(FScore);
