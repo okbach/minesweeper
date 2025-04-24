@@ -42,3 +42,8 @@ Bitcoin (BTC): 1Fz14qx8UNpPQuCUuzyFWdj1hvPr5XSZ8k
 USDT / BNB (BEP20): 0x7c5980ef22dca9d392e8aa8b4aeacf44b2dd6bc7
 
 Thank you for your support! 💛
+
+Capture 
+![1](Capture/1.PNG) 
+![1](Capture/2.PNG)
+![1](Capture/3.PNG)
