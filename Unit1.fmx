@@ -1485,6 +1485,12 @@ object Form1: TForm1
       ShadowColor = claBlack
     end
   end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    Left = 24
+    Top = 184
+  end
   object ImageList1: TImageList
     Source = <
       item
@@ -1825,11 +1831,5 @@ object Form1: TForm1
       end>
     Left = 24
     Top = 104
-  end
-  object Timer1: TTimer
-    Enabled = False
-    OnTimer = Timer1Timer
-    Left = 224
-    Top = 224
   end
 end
