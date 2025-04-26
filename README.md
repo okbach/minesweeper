@@ -33,6 +33,16 @@ Practice animation and audio integration in Delphi
 
 Deliver a polished, user-friendly interface
 
+Features todo
+
+🚀 Android-ready: The engine can be integrated into an Android app with minimal effort, and supports Play Store deployment.
+
+🧩 Customizable board sizes: Easily configure board dimensions (width × height × mines).
+
+🎨 Multiple themes: Light, dark, and custom color themes.
+
+🛠️ Highly modular: Designed to be extended or customized for different rules (e.g., hexagonal minesweeper, custom difficulty).
+
 
 🙌 Support the Project
 If you enjoy the game and would like to support future development, donations are welcome:
